@@ -1,0 +1,1 @@
+let bringQuoteBtn = document.getElementById("quote-btn");
