@@ -1,4 +1,27 @@
-<! divs for quote in original language ––>
-<div></div>
-<! div for translated quote ––> 
-<div></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stlyesheet" href="style.css"></link>
+</head>
+<body>
+    <!-- button for the generation of a new quote -->
+    <button>Generate new Quote</button>
+    
+    <!-- div for quote in original language -->
+    <div id="quote"></div>
+    
+    <!-- dropdown for choosing target language-->
+    <label for="Language">Choose target language</label>
+    <select name="language" id="language">
+        <option value="German">German</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+        <option value="English">English</option>
+    </select>
+    
+    <!-- div for translated quote -->
+    <div id="trans"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
