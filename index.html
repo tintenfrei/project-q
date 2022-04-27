@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0">
+    <title>Quote Generator and Translator</title>
     <link rel="stlyesheet" href="style.css"></link>
 </head>
 <body>
     <!-- button for the generation of a new quote -->
-    <button>Generate new Quote</button>
+    <button id="quote-btn">Generate new Quote</button>
     
     <!-- div for quote in original language -->
-    <div id="quote"></div>
+    <div class="quote-wrapper">
+        <h2>Quote of the day</h2>
+        <small id="quote-tags">life</small>
+        <blockquote id="quote-text">Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Enim necessitatibus aliquam laborum recusandae quos, 
+            pariatur tempore quis ut eum repellendus magnam, amet expedita animi natus ab. 
+            Hic consequatur assumenda laboriosam.</blockquote>
+       <cite id="quote-author">Unknown</cite>
+       <button type="button" id="gen-quote-btn">Get new Quote</button>
+    </div>
     
     <!-- dropdown for choosing target language-->
     <label for="Language">Choose target language</label>
