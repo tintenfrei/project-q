@@ -11,14 +11,14 @@ body {
     align-items: center;
     text-align: center;
     font-size: 1.2rem;/*rem fontsize of root element*/
-    background-color: var(--dark-purple);
+    background-color: var(--body-color, purple);
     padding: 2rem;
 }
 
 .quote-wrapper{
     background-color: #fff;
     border-radius: 20px;
-    padding: 4rem 1.5 rem;
+    padding: 4rem 1.5rem;
     -webkit-box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 0, 1);
     -moz-box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 1);
     box-shadow: 0px 2px 15px -5px rgba(0, 0, 0, 1);
@@ -31,7 +31,7 @@ body {
 .quote-wrapper small {
     font-weight: 700;
     padding: 0.2rem 1rem;
-    color: var(--dark-purple);
+    color: var(--wrapper-color, purple);
     border-radius: 5px;
     text-transform: capitalize;
 }
@@ -48,7 +48,7 @@ body {
 #gen-quote-btn{
     font-size: 1.1rem;
     border: none;
-    background-color: var(--dark-purple);
+    background-color: var(--gen-color, purple);
     color: #fff;
     padding: 0.7rem 1.2rem;
     border-radius: 1.5rem;
