@@ -7,30 +7,35 @@
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- div for quote in original language -->
-    <div class="quote-wrapper">
-        <h2>Quote of the day</h2>
-        <small id="quote-tags">life</small>
-        <blockquote id="quote-text">Lorem ipsum dolor sit amet consectetur 
-            adipisicing elit. Enim necessitatibus aliquam laborum recusandae quos, 
-            pariatur tempore quis ut eum repellendus magnam, amet expedita animi natus ab. 
-            Hic consequatur assumenda laboriosam.</blockquote>
-       <cite id="quote-author">Unknown</cite>
-       <button type="button" id="gen-quote-btn">Get new Quote</button>
-    </div>
-    
-    <!-- dropdown for choosing target language-->
-    <label for="Language">Choose target language</label>
-    <select name="language" id="language">
-        <option value="German">German</option>
-        <option value="Spanish">Spanish</option>
-        <option value="French">French</option>
-        <option value="English">English</option>
-    </select>
-    
-    <!-- div for translated quote -->
-    <div id="trans"></div>
+    <div class="container">
 
-    <script src="script.js"></script>
-</body>
+        <!-- div for quote in original language -->
+        
+        <div class="quote-wrapper">
+            <h2>Quote of the day</h2>
+            <small id="quote-tags">life</small>
+            <blockquote id="quote-text">Lorem ipsum dolor sit amet consectetur 
+                adipisicing elit. Enim necessitatibus aliquam laborum recusandae quos, 
+                pariatur tempore quis ut eum repellendus magnam, amet expedita animi natus ab. 
+                Hic consequatur assumenda laboriosam.</blockquote>
+                <cite id="quote-author">Unknown</cite>
+                <button type="button" id="gen-quote-btn">Get new Quote</button>
+            </div>
+            <!-- dropdown for choosing target language-->
+            <div class="translation">
+                <label for="Language">Choose target language</label>
+                <select name="language" id="language">
+                    <option value="German">German</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                    <option value="English">English</option>
+                </select>
+            </div>
+            
+        </div>
+            <!-- div for translated quote -->
+            <div id="trans"></div>
+            
+            <script src="script.js"></script>
+        </body>
 </html>
