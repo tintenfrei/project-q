@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project Q</title>
-   <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="container">
 
         <!-- div for quote in original language -->
-        
+
         <div class="quote-wrapper">
             <h2>Quote of the day</h2>
             <small id="quote-tags">life</small>
-            <blockquote id="quote-text">Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Enim necessitatibus aliquam laborum recusandae quos, 
-                pariatur tempore quis ut eum repellendus magnam, amet expedita animi natus ab. 
-                Hic consequatur assumenda laboriosam.</blockquote>
-                <cite id="quote-author">Unknown</cite>
-                <button type="button" id="gen-quote-btn">Get new Quote</button>
-            </div>
-            <!-- dropdown for choosing target language-->
-            <div class="translation">
-                <label for="Language">Choose target language</label>
-                <select name="language" id="language">
+            <blockquote id="quote-text">I have no special talent. I am only passionately curious.</blockquote>
+            <cite id="quote-author">Albert Einstein</cite>
+            <button type="button" id="gen-quote-btn">Get new Quote</button>
+        </div>
+        <!-- dropdown for choosing target language-->
+        <div class="translation">
+            <label for="Language">Choose target language</label>
+            <select name="language" id="language">
                     <option value="German">German</option>
                     <option value="Spanish">Spanish</option>
                     <option value="French">French</option>
                     <option value="English">English</option>
                 </select>
-            </div>
-            
         </div>
-            <!-- div for translated quote -->
-            <div id="trans"></div>
-            
-            <script src="script.js"></script>
-        </body>
+
+    </div>
+    <!-- div for translated quote -->
+    <div id="trans"></div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
