@@ -1,9 +1,17 @@
-let bringQuoteBtn = document.getElementById("quote-btn");
+let e = document.getElementById('languageSelector');
 
-let authorSection = document.getElementById("author");
-let quoteSection = document.getElementById("quote");
+function getSelectValue(languageSelector) {
+    pick_ = document.getElementById(languageSelector).value;
+    localStorage.pick_ = pick_;
+    pick_ = localStorage.getItem("pick_");
+    location.reload();
+}
+
+let textToDeep = document.getElementById("quote-text").innerHTML;
 
 
-fetch('https://quote-garden.herokuapp.com/api/v3/quotes')
-    .then(response => response.json()) // one liner or no block of code
-    .then(quotes => console.log(quotes))
+fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=${textToDeep}&target_lang=${getSelectValue}`)
+    .then(response => response.json())
+    .then(response => {
+        return document.getElementById("targetText").innerHTML = response.translations[0].text;
+    })
