@@ -1,9 +1,19 @@
-let bringQuoteBtn = document.getElementById("quote-btn");
+const quoteText = document.getElementById('quote-text'),
+      quoteTags = document.getElementById('quote-tags'),
+      quoteAuthor = document.getElementById('quote-author'),
+      genQuoteBtn = document.getElementById('gen-quote-btn');
 
-let authorSection = document.getElementById("author");
-let quoteSection = document.getElementById("quote");
+function randomQuote(){
+    fetch('https://api.quotable.io/random')
+    .then(response => response.json()) 
+    .then(data => {
+        quoteText.textContent = data.content;
+        quoteTags.textContent = data.tags;
+        quoteAuthor.textContent = `-- ${data.author}`;
+    });
+}
 
-
-fetch('https://quote-garden.herokuapp.com/api/v3/quotes')
-    .then(response => response.json()) // one liner or no block of code
-    .then(quotes => console.log(quotes))
+randomQuote();
+genQuoteBtn.addEventListener('click', () => {
+    randomQuote();
+});
