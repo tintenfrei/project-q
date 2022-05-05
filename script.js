@@ -2,9 +2,14 @@
 // fix the author name issue (through generating the quote cards from the script tag )
 // generate the options from here (the script tag)
 // make an array of objects like the one below and loop over it to generate the option tags
-let options = [{ value: "es", label: "Spanish" },{ value: "de", label: "German" }, 
-               { value: "fr", label: "French" }, { value: "cs", label: "Czech" },{ value: "el", label: "El" },]
+
                
+
+
+// for(var i = 0, l = options.length; i < l; i++){
+//     var option = options[i];
+//     selectBox.options.add( new Option(option.language, option.name, option.supports_formality) );
+//   }
 
 //  the getTranslations() on option select
 
@@ -22,6 +27,23 @@ const getTranslations = function(text, language) {
         return document.getElementById("targetText").innerHTML = response.translations[0].text;
             })
     };
+    let options = [];
+
+function presentLangOptions() {
+    fetch(`https://api-free.deepl.com/v2/languages?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&type=target`)
+        .then(response => response.json())
+        .then(response =>  options = response)
+        .then(() => {
+                        for(let i = 0; i < options.length; i++) {
+                            console.log()
+                            createOption(options[i].language, options[i].name)
+                        }
+         }) 
+
+};
+presentLangOptions();
+ 
+
 
 function randomQuote() {
     fetch('https://api.quotable.io/random')
