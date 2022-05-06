@@ -27,7 +27,8 @@ const getTranslations = function(text, language) {
         return document.getElementById("targetText").innerHTML = response.translations[0].text;
             })
     };
-    let options = [];
+let options = [];
+var selectBox = document.getElementById('languageSelector');
 
 function presentLangOptions() {
     fetch(`https://api-free.deepl.com/v2/languages?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&type=target`)
@@ -35,12 +36,13 @@ function presentLangOptions() {
         .then(response =>  options = response)
         .then(() => {
                         for(let i = 0; i < options.length; i++) {
-                            console.log()
-                            createOption(options[i].language, options[i].name)
-                        }
-         }) 
+                            var option = options[i];
+                            selectBox.options.add( new Option(option.name) );
+                        } 
+                    })
+        }
 
-};
+
 presentLangOptions();
  
 
