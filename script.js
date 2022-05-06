@@ -42,13 +42,10 @@ function presentLangOptions() {
         .then(() => {
                         for(let i = 0; i < options.length; i++) {
                             var option = options[i];
-                            let isSelected = false
-                            
-                            if (option.language === userLang.toUpperCase()) {
-                                isSelected = true
-                                console.log(isSelected, option.language)
-                            }
-                            selectBox.options.add( new Option(option.name,option.language,isSelected, isSelected ) );
+
+                            let isSelected = (option.language === userLang.toUpperCase()) ? true : false; 
+
+                            selectBox.options.add( new Option( option.name, option.language, isSelected, isSelected ) );
                           
                        
                        } 
