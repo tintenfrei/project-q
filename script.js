@@ -19,6 +19,8 @@ const quoteText = document.getElementById('quote-text'),
     genQuoteBtn = document.getElementById('gen-quote-btn');
 
     let targetlanguage = "de";
+    let userLang = navigator.language || navigator.userLanguage; 
+
 
 const getTranslations = function(text, language) {
     fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=${text}&target_lang=${language}`)
@@ -28,23 +30,31 @@ const getTranslations = function(text, language) {
             })
     };
 let options = [];
+
 var selectBox = document.getElementById('languageSelector');
+
+
 
 function presentLangOptions() {
     fetch(`https://api-free.deepl.com/v2/languages?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&type=target`)
         .then(response => response.json())
-        .then(response =>  options = response)
+        .then(response => options = response)
         .then(() => {
                         for(let i = 0; i < options.length; i++) {
                             var option = options[i];
-                            selectBox.options.add( new Option(option.name) );
-                        } 
+
+                            let isSelected = (option.language === userLang.toUpperCase()) ? true : false; 
+
+                            selectBox.options.add( new Option( option.name, option.language, isSelected, isSelected ) );
+                          
+                       
+                       } 
                     })
+        .then(selectBox[selectBox.selectedIndex] = 5)
         }
 
-
+console.log(options)
 presentLangOptions();
- 
 
 
 function randomQuote() {
@@ -56,7 +66,8 @@ function randomQuote() {
             quoteAuthor.textContent = `-- ${data.author}`;
             return data;
         })
-        .then(data => getTranslations(data.content, 'es')); // add a (then) with a default translation 
+        .then(data => getTranslations(data.content, userLang))
+        .then(console.log(selectBox)); // add a (then) with a default translation 
 }
 
 console.log(quoteText.textContent)
@@ -69,8 +80,4 @@ genQuoteBtn.addEventListener('click', () => {
 
 
 
-
-let select = document.getElementById('languageSelector');
-
-
-select.addEventListener("change", () => getTranslations(quoteText.textContent, select[select.selectedIndex].value));
+selectBox.addEventListener("change", () => getTranslations(quoteText.textContent, selectBox[selectBox.selectedIndex].value));
