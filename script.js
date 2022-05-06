@@ -1,21 +1,7 @@
-// TODO
-// fix the author name issue (through generating the quote cards from the script tag )
-// generate the options from here (the script tag)
-// make an array of objects like the one below and loop over it to generate the option tags
-
-               
-
-
-// for(var i = 0, l = options.length; i < l; i++){
-//     var option = options[i];
-//     selectBox.options.add( new Option(option.language, option.name, option.supports_formality) );
-//   }
-
-//  the getTranslations() on option select
 
 const quoteText = document.getElementById('quote-text'),
     quoteTags = document.getElementById('quote-tags'),
-    quoteAuthor = document.getElementsByClassName('quote-author'),
+    quoteAuthor = document.getElementsById('quote-author'),
     genQuoteBtn = document.getElementById('gen-quote-btn');
 
     let targetlanguage = "de";
