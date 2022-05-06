@@ -1,4 +1,4 @@
-
+// this .....bbla bla bla
 
 
 const quoteText = document.getElementById('quote-text'),
