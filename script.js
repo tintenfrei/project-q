@@ -4,17 +4,14 @@ const quoteText = document.getElementById('quote-text'),
     genQuoteBtn = document.getElementById('gen-quote-btn');
 let targetlanguage = "de";
 let userLang = navigator.language || navigator.userLanguage;
-const getTranslations = function(text, language) {
-    fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=${text}@Quote%20of%20the%20day&target_lang=${language}`)
+const getTranslations = function(otext, language) {
+    fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=${otext}@Quote%20of%20the%20day&target_lang=${language}`)
         .then(response => response.json())
         .then(response => {
-            const myH1Array = text.split("@");
-            return document.getElementById("targetText").innerHTML = response.translations[0].text;
-        })
-        .then(() => {
-            let text = targetText.innerHTML;
-            const myH1Array = text.split("@");
-            return document.getElementById("headerForTranslation").innerHTML = myH1Array[1];
+            let ttext = response.translations[0].text;
+            const h1text =  ttext.split("@")[1]
+            document.getElementById("targetText").innerHTML = ttext.split("@")[0];
+            document.getElementById("headerForTranslation").innerHTML = h1text;
         })
 };
 
