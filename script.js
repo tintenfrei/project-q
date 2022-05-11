@@ -7,20 +7,21 @@ const quoteText = document.getElementById('quote-text'),
 
     //retrieving and storing the language of the actual user because every user starts with their won language (works on Chrome, Brave and Firefox so far, apparently not yet on Safari)
 let userLang = navigator.language || navigator.userLanguage;
+let ttext;
 
 // ONLY CREATING AND STORING TRANSLATIONS FUNCTION
 // storing in a const the translation api from deepl.com with two parameters: text to be translated (otext) and the target language (language), additionally to the two parameters we are translating
 // Quote of the day
 const getTranslations = function(otext, language) {
-    fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=${otext}@Quote%20of%20the%20day&target_lang=${language}`)
+    fetch(`https://api-free.deepl.com/v2/translate?auth_key=8b66872d-f900-ca3f-dd80-cda50dfab6f6%3Afx&text=Quote%20of%20the%20day%20@%20${otext}&target_lang=${language}`)
         .then(response => response.json())
         .then(response => {
             // storing in ttext variable the result fromt the api translation including otext and "Quote of the Day"
-            let ttext = response.translations[0].text;
-            const h1text =  ttext.split("@")[1]
+            ttext = response.translations[0].text;
+        }).then(() => {
             // splitting with split method thaat converts a string into an array; pushing the result into document according to IDs
-            document.getElementById("targetText").innerHTML = ttext.split("@")[0];
-            document.getElementById("headerForTranslation").innerHTML = h1text;
+            document.getElementById("targetText").innerHTML = ttext.split("@")[1];
+            document.getElementById("headerForTranslation").innerHTML = ttext.split("@")[0];
         })
 };
 // CREATING DIFFERENT TARGET LANGUAGES
